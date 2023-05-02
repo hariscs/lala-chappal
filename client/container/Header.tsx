@@ -24,7 +24,7 @@ export const Header = () => {
             <li key={link}>
               <Link
                 href={`/${link}`}
-                className='py-3.5 hover:underline capitalize inline-block text-xl font-semibold'
+                className='py-3.5 hover:text-primary text-secondary capitalize inline-block text-xl'
               >
                 {link}
               </Link>
