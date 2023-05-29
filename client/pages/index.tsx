@@ -1,4 +1,5 @@
 import { Header } from '@container/Header'
+import { Hero } from '@container/Hero'
 import Head from 'next/head'
 
 export default function Home() {
@@ -11,7 +12,9 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Header />
-      <main></main>
+      <main>
+        <Hero />
+      </main>
     </>
   )
 }

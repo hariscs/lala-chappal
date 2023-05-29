@@ -20,11 +20,13 @@ export const Header = () => {
       {/* nav links */}
       <nav className='hidden md:block'>
         <ul className='flex gap-16'>
-          {navLinks.map((link) => (
+          {navLinks.map((link, i) => (
             <li key={link}>
               <Link
                 href={`/${link}`}
-                className='py-3.5 hover:text-primary text-secondary capitalize inline-block text-xl'
+                className={`${
+                  i === 0 && 'text-primary'
+                } py-3.5 hover:text-primary text-[#333] capitalize inline-block text-xl`}
               >
                 {link}
               </Link>
@@ -38,12 +40,7 @@ export const Header = () => {
       </Link>
       {/* mobile menu */}
       <div className='md:hidden py-3.5 cursor-pointer'>
-        <Image
-          src='/menu.svg'
-          width={32}
-          height={21}
-          alt='mobile menu'
-        />
+        <Image src='/menu.svg' width={32} height={21} alt='mobile menu' />
       </div>
     </header>
   )
