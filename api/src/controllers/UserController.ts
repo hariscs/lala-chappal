@@ -1,7 +1,6 @@
 import { Request, Response } from 'express'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
-import config from '../config'
 import User, { IUser } from '../models/User'
 
 export const signup = async (req: Request, res: Response) => {
@@ -30,13 +29,46 @@ export const signup = async (req: Request, res: Response) => {
     // Generate JWT token
     const token: string = jwt.sign(
       { userId: savedUser._id },
-      config.jwtSecret,
-      { expiresIn: '1h' }
+      process.env.jwtSecret,
+      { expiresIn: '30d' }
     )
 
     res.status(201).json({ token })
   } catch (error) {
     console.error('Error in signup:', error)
     res.status(500).json({ message: 'Internal server error' })
+  }
+}
+
+export const loginUser = async (req: Request, res: Response) => {
+  const { email, password } = req.body
+
+  try {
+    // Find the user by email
+    const user: IUser | null = await User.findOne({ email })
+
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' })
+    }
+
+    // Compare the provided password with the hashed password
+    const passwordMatch = await bcrypt.compare(password, user.password)
+
+    if (!passwordMatch) {
+      return res.status(401).json({ message: 'Incorrect password' })
+    }
+
+    // Successful login
+    // Generate JWT token
+    const token: string = jwt.sign(
+      { userId: user._id },
+      process.env.jwtSecret,
+      { expiresIn: '30d' }
+    )
+
+    return res.status(200).json({ message: 'Login successful', token })
+  } catch (error) {
+    console.error('Error during login:', error)
+    return res.status(500).json({ message: 'Internal server error' })
   }
 }
