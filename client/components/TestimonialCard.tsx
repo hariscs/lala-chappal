@@ -28,7 +28,7 @@ export const TestimonialCard = ({ data }: { data: ITestimonialCard }) => {
           width={62}
         />
       </div>
-      <p className='text-[#525252] pl-4 pt-4'>{review}</p>
+      <p className='text-accent pl-4 pt-4'>{review}</p>
     </div>
   )
 }
