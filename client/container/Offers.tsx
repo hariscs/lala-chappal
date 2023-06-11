@@ -5,7 +5,7 @@ import { offers, testimonials } from 'constants/data'
 
 export const Offers = () => {
   return (
-    <section>
+    <section className='bg-[#fafafa]'>
       <Wrapper>
         <div className='pb-8'>
           <div className='flex justify-center items-center mb-11'>

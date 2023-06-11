@@ -15,15 +15,15 @@ export const OfferCard = ({ data }: { data: IOfferCard }) => {
       <Image
         src={icon}
         alt={heading}
-        className='w-auto h-auto outline rounded-full'
+        className='w-auto h-auto rounded-full'
         width={105}
         height={150}
       />
-      <h3 className='capitalize block text-xl text-secondary font-semibold pt-4 pb-4'>
+      <h3 className='capitalize text-xl text-secondary font-semibold pt-4 pb-4'>
         {heading}
       </h3>
 
-      <p className=' block text-accent text-center '>{text}</p>
+      <p className='text-accent'>{text}</p>
     </div>
   )
 }

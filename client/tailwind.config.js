@@ -16,6 +16,13 @@ module.exports = {
         secondary: '#393939',
         accent: '#525252',
       },
+      dropShadow: {
+        primary: '0 0 4px #0BFAE9',
+      },
+      boxShadow: {
+        primary:
+          '2.4252px 2.4252px 19.4016px rgba(0, 0, 0, 0.08), 1.2126px 2.4252px 4.85039px rgba(0, 0, 0, 0.04)',
+      },
     },
   },
   plugins: [],
