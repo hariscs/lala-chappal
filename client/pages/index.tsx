@@ -1,5 +1,6 @@
 import { Header } from '@container/Header'
 import { Hero } from '@container/Hero'
+import { Offers } from '@container/Offers'
 import Head from 'next/head'
 
 export default function Home() {
@@ -14,6 +15,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <Offers />
       </main>
     </>
   )
