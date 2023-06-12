@@ -11,7 +11,7 @@ export const TestimonialCard = ({ data }: { data: ITestimonialCard }) => {
 
   return (
     <div className='border p-8 max-w-sm rounded-[2rem] flex flex-col border-b-4 border-r-4 border-primary'>
-      <div className='flex justify-around'>
+      <div className='flex justify-betweem items-center gap-4'>
         <Image
           className='rounded-full border-4 border-primary max-w-[110px] max-h-[110px]'
           src='https://i.pravatar.cc/300'
