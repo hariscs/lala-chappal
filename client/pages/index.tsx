@@ -1,3 +1,4 @@
+import { Footer } from '@container/Footer'
 import { Header } from '@container/Header'
 import { Hero } from '@container/Hero'
 import { Offers } from '@container/Offers'
@@ -16,6 +17,7 @@ export default function Home() {
       <main>
         <Hero />
         <Offers />
+        <Footer/>
       </main>
     </>
   )

@@ -15,6 +15,7 @@ module.exports = {
         primary: '#EC5E3F',
         secondary: '#393939',
         accent: '#525252',
+        gray: '#d9dbe1',
       },
       dropShadow: {
         primary: '0 0 4px #0BFAE9',
