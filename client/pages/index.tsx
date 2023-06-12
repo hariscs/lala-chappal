@@ -1,3 +1,4 @@
+import { Contact } from '@container/Contact'
 import { Cutsom } from '@container/Cutsom'
 import { Footer } from '@container/Footer'
 import { Header } from '@container/Header'
@@ -18,8 +19,9 @@ export default function Home() {
       <main>
         <Hero />
         <Offers />
-        <Cutsom/>
-        <Footer/>
+        <Cutsom />
+        <Contact />
+        <Footer />
       </main>
     </>
   )
