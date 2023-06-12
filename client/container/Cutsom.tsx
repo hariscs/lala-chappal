@@ -1,3 +1,4 @@
+import { Button } from '@components/Button'
 import { Wrapper } from '@components/Wrapper'
 import Image from 'next/image'
 import React from 'react'
@@ -15,7 +16,7 @@ export const Cutsom = () => {
   return (
     <section className='py-8 lg:py-16'>
       <Wrapper>
-        <div className='flex flex-col justify-between lg:flex-row gap-4'>
+        <form className='flex flex-col justify-between lg:flex-row gap-4'>
           <div>
             <h2 className='text-4xl text-[#333]'>
               Customise your <br />{' '}
@@ -60,9 +61,12 @@ export const Cutsom = () => {
                   12
                 </div>
               </div>
+              <div className='text-end'>
+                <Button>Add to cart</Button>
+              </div>
             </div>
           </div>
-        </div>
+        </form>
       </Wrapper>
     </section>
   )
