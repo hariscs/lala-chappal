@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Order Confirmation</title>
+  </head>
+  <body>
+    <table width="100%" cellspacing="0" cellpadding="0" border="0">
+      <tr>
+        <td align="center">
+          <table
+            width="600"
+            cellspacing="0"
+            cellpadding="0"
+            border="0"
+            style="font-family: Arial, sans-serif"
+          >
+            <tr>
+              <td align="center" style="color: #333; font-size: 24px">
+                Order Confirmation
+              </td>
+            </tr>
+            <tr>
+              <td style="color: #555; font-size: 16px; padding: 20px 0">
+                Dear Admin,
+              </td>
+            </tr>
+            <tr>
+              <td style="color: #555; font-size: 16px; padding-bottom: 20px">
+                A new order has been confirmed. Here are the details:
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <table
+                  cellspacing="0"
+                  cellpadding="0"
+                  border="1"
+                  style="color: #555; font-size: 16px; width: 100%"
+                >
+                  <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Cost</th>
+                    <th>Design</th>
+                    <th>Color</th>
+                    <th>Size</th>
+                  </tr>
+                  <tr>
+                    <td>{{product_name}}</td>
+                    <td>{{quantity}}</td>
+                    <td>{{cost}}</td>
+                    <td>{{design}}</td>
+                    <td>{{color}}</td>
+                    <td>{{size}}</td>
+                  </tr>
+                  <!-- Add more rows for additional products if needed -->
+                </table>
+              </td>
+            </tr>
+            <tr>
+              <td
+                style="
+                  color: #555;
+                  font-size: 16px;
+                  padding-top: 20px;
+                  padding-bottom: 10px;
+                "
+              >
+                Customer Information:
+              </td>
+            </tr>
+            <tr>
+              <td style="color: #555; font-size: 16px; padding-bottom: 5px">
+                <strong>Name:</strong> {{customer_name}}
+              </td>
+            </tr>
+            <tr>
+              <td style="color: #555; font-size: 16px; padding-bottom: 5px">
+                <strong>Email:</strong> {{customer_email}}
+              </td>
+            </tr>
+            <tr>
+              <td style="color: #555; font-size: 16px; padding-bottom: 5px">
+                <strong>Phone Number:</strong> {{customer_phone}}
+              </td>
+            </tr>
+            <tr>
+              <td style="color: #555; font-size: 16px; padding-bottom: 20px">
+                <strong>Phone:</strong> {{customer_phone}}
+              </td>
+            </tr>
+            <tr>
+              <td style="color: #555; font-size: 16px; padding-bottom: 20px">
+                <strong>Address:</strong> {{customer_address}}
+              </td>
+            </tr>
+            <tr>
+              <td style="color: #555; font-size: 16px; padding-bottom: 20px">
+                <strong>Payment Method:</strong> {{payment}}
+              </td>
+            </tr>
+            <tr>
+              <td style="color: #555; font-size: 16px; padding-bottom: 20px">
+                Please contact the customer to process the order.
+              </td>
+            </tr>
+            <tr>
+              <td style="color: #555; font-size: 16px; padding-bottom: 20px">
+                Thank you!
+              </td>
+            </tr>
+            <tr>
+              <td style="color: #555; font-size: 16px; padding-bottom: 20px">
+                Best regards,
+              </td>
+            </tr>
+            <tr>
+              <td style="color: #555; font-size: 16px; padding-bottom: 20px">
+                Your Website Admin
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </body>
+</html>
