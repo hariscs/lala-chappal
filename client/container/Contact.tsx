@@ -9,7 +9,7 @@ export const Contact = () => {
       <Wrapper>
         <div className='py-10'>
           <h3>Contact Us</h3>
-          <div className='flex justify-between'>
+          <div className='flex justify-between flex-col lg:flex-row gap-4'>
             <div className='flex flex-col gap-8'>
               <p className='font-medium text-[40px]'>
                 Let’s connect and <br /> get started!
@@ -73,13 +73,13 @@ export const Contact = () => {
               </Link>
             </div>
             <form className='flex flex-col gap-8 border border-primary border-r-4 border-b-4 p-8 rounded-3xl'>
-              <div className='flex gap-8'>
+              <div className='flex gap-8 flex-col lg:flex-row'>
                 <div className='flex gap-1 flex-col'>
                   <label htmlFor='name'>Name</label>
                   <input
                     type='text'
                     id='name'
-                    className='border border-[#94a3b8] p-3 rounded'
+                    className='border border-[#94a3b8] p-3 rounded w-full'
                   />
                 </div>
                 <div className='flex gap-1 flex-col'>
@@ -87,7 +87,7 @@ export const Contact = () => {
                   <input
                     type='tel'
                     id='contact'
-                    className='border border-[#94a3b8] p-3 rounded'
+                    className='border border-[#94a3b8] p-3 rounded w-full'
                   />
                 </div>
               </div>

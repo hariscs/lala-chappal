@@ -39,7 +39,7 @@ export const Cutsom = () => {
             </div>
             <div>
               <h4 className='text-[#333] text-2xl mb-5'>select your design</h4>
-              <div className='border flex flex-col justify-between p-2 items-center bg-[#f9f9f9] w-[668px] h-[548px] rounded-2xl'>
+              <div className='border flex flex-col justify-between p-2 items-center bg-[#f9f9f9] max-w-[668px] max-h-[548px] rounded-2xl'>
                 <div>
                   <Image
                     src='/blackchappal.png'
