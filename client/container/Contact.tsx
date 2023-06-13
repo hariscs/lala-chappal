@@ -1,3 +1,4 @@
+import { Button } from '@components/Button'
 import { Wrapper } from '@components/Wrapper'
 import Link from 'next/link'
 import React from 'react'
@@ -8,10 +9,10 @@ export const Contact = () => {
       <Wrapper>
         <div className='py-10'>
           <h3>Contact Us</h3>
-          <div className='flex'>
-            <div className='flex  flex-col gap-8'>
+          <div className='flex justify-between'>
+            <div className='flex flex-col gap-8'>
               <p className='font-medium text-[40px]'>
-                Let’s connect and get started!
+                Let’s connect and <br /> get started!
               </p>
               <div className='flex items-center gap-4'>
                 <span className='bg-[#f8f8f8] grid place-content-center w-16 h-16 p-6 rounded-2xl'>
@@ -71,17 +72,44 @@ export const Contact = () => {
                 <span>info@lalachappal.com</span>
               </Link>
             </div>
-            <form className='flex flex-col gap-8'>
-              <div className='flex'>
-                <div>
+            <form className='flex flex-col gap-8 border border-primary border-r-4 border-b-4 p-8 rounded-3xl'>
+              <div className='flex gap-8'>
+                <div className='flex gap-1 flex-col'>
                   <label htmlFor='name'>Name</label>
-                  <input type='text' id='name' />
+                  <input
+                    type='text'
+                    id='name'
+                    className='border border-[#94a3b8] p-3 rounded'
+                  />
                 </div>
                 <div className='flex gap-1 flex-col'>
                   <label htmlFor='contact'>Contact</label>
-                  <input type='tel' id='contact' className='border p-3 rounded' />
+                  <input
+                    type='tel'
+                    id='contact'
+                    className='border border-[#94a3b8] p-3 rounded'
+                  />
                 </div>
               </div>
+              <div className='flex gap-1 flex-col'>
+                <label htmlFor='email'>Email</label>
+                <input
+                  type='email'
+                  id='email'
+                  className='border border-[#94a3b8] p-3 rounded'
+                />
+              </div>
+              <div className='flex gap-1 flex-col'>
+                <label htmlFor='message'>Message</label>
+                <textarea
+                  name='message'
+                  id='message'
+                  cols={30}
+                  rows={5}
+                  className='border border-[#94a3b8] p-3 rounded'
+                ></textarea>
+              </div>
+              <Button>Send</Button>
             </form>
           </div>
         </div>
