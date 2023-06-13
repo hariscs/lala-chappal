@@ -1,5 +1,5 @@
 import { Contact } from '@container/Contact'
-import { Cutsom } from '@container/Cutsom'
+import { Custom } from '@container/Custom'
 import { Footer } from '@container/Footer'
 import { Header } from '@container/Header'
 import { Hero } from '@container/Hero'
@@ -19,7 +19,7 @@ export default function Home() {
       <main>
         <Hero />
         <Offers />
-        <Cutsom />
+        <Custom />
         <Contact />
         <Footer />
       </main>

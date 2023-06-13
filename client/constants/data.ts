@@ -37,3 +37,16 @@ export const offers = [
     text: ' Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mollis nunc a molestie dictum. Lorem ipsum dolor sit amet, consectetur adiio.',
   },
 ]
+
+export const imagesData = [
+  {
+    id: '1',
+    src: '/bluechappal.png',
+    name: 'blue-chappal',
+  },
+  {
+    id: '2',
+    src: '/yellowchappal.png',
+    name: 'yellow-chappal',
+  },
+]
