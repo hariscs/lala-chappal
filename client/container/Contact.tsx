@@ -1,9 +1,51 @@
 import { Button } from '@components/Button'
 import { Wrapper } from '@components/Wrapper'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState } from 'react'
 
 export const Contact = () => {
+  const [dataSubmitted, setDataSubmitted] = useState(false)
+  const postFormData = async (formData: {
+    name: string
+    contact: string
+    email: string
+    message: string
+  }) => {
+    try {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ formData }),
+      })
+      if (!response.ok) {
+        console.log(formData)
+      }
+    } catch (err) {
+      console.log(formData)
+    }
+  }
+
+  const handleSubmit = (e: React.SyntheticEvent) => {
+    e.preventDefault()
+    // Type Assertion: Sometimes we will have information about the type of a value that TypeScript can’t know about. it's a way to let the TypeScript compiler know the type of a variable.
+    const target = e.target as typeof e.target & {
+      name: { value: string }
+      contact: { value: string }
+      email: { value: string }
+      message: { value: string }
+    }
+    const name = target.name.value
+    const contact = target.contact.value
+    const email = target.email.value
+    const message = target.message.value
+    const formData = {
+      name,
+      contact,
+      email,
+      message,
+    }
+    postFormData(formData)
+  }
   return (
     <section>
       <Wrapper>
@@ -72,7 +114,10 @@ export const Contact = () => {
                 <span>info@lalachappal.com</span>
               </Link>
             </div>
-            <form className='flex flex-col gap-8 border border-primary border-r-4 border-b-4 p-8 rounded-3xl'>
+            <form
+              onSubmit={handleSubmit}
+              className='flex flex-col gap-8 border border-primary border-r-4 border-b-4 p-8 rounded-3xl'
+            >
               <div className='flex gap-8 flex-col lg:flex-row'>
                 <div className='flex gap-1 flex-col'>
                   <label htmlFor='name'>Name</label>
@@ -87,6 +132,7 @@ export const Contact = () => {
                   <input
                     type='tel'
                     id='contact'
+                    name='contact'
                     className='border border-[#94a3b8] p-3 rounded w-full'
                   />
                 </div>
@@ -96,6 +142,7 @@ export const Contact = () => {
                 <input
                   type='email'
                   id='email'
+                  name='email'
                   className='border border-[#94a3b8] p-3 rounded'
                 />
               </div>
@@ -109,7 +156,7 @@ export const Contact = () => {
                   className='border border-[#94a3b8] p-3 rounded'
                 ></textarea>
               </div>
-              <Button>Send</Button>
+              <Button type='submit'>Send</Button>
             </form>
           </div>
         </div>
