@@ -12,10 +12,10 @@ export const Contact = () => {
     message: string
   }) => {
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}`, {
+      const response = await fetch('http://localhost:8080/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ formData }),
+        body: JSON.stringify(formData),
       })
       if (!response.ok) {
         console.log(formData)

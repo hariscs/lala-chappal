@@ -4,6 +4,7 @@ import Image from 'next/image'
 import { Button } from '@components/Button'
 import { Wrapper } from '@components/Wrapper'
 import { imagesData } from 'constants/data'
+import { Sidebar } from '@components/Sidebar'
 
 export const Custom = () => {
   const [selectedDesign, setSelectedDesign] = useState('')
@@ -27,13 +28,14 @@ export const Custom = () => {
 
     // Prepare the data to be sent to the API
     const formData = {
-      design: selectedDesign,
       color: selectedColor,
-      number: selectedNumber,
+      design: selectedDesign,
+      size: selectedNumber,
+      soleThickness: '2',
     }
 
     // Send form data to the API using fetch or any other HTTP client library
-    fetch('https://example.com/api/endpoint', {
+    fetch('http://localhost:8080/product', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -51,7 +53,11 @@ export const Custom = () => {
       })
     console.log(formData)
   }
-
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+  const toggleSidebar = () => {
+    setSidebarOpen(!sidebarOpen)
+  }
+  console.log(sidebarOpen)
   return (
     <section className='py-8 lg:py-16'>
       <Wrapper>
@@ -74,7 +80,9 @@ export const Custom = () => {
                 <div
                   key={i}
                   className={`bg-[#f9f9f9] cursor-pointer border border-primary rounded-3xl w-[166px] h-[163px] ${
-                    selectedDesign === img.name ? 'border-r-4 border-b-4' : 'border-r border-b'
+                    selectedDesign === img.name
+                      ? 'border-r-4 border-b-4'
+                      : 'border-r border-b'
                   }`}
                   onClick={() => handleDesignSelect(img.name)}
                 >
@@ -137,10 +145,12 @@ export const Custom = () => {
               </div>
               <div className='text-end'>
                 <Button type='submit'>Add to cart</Button>
+                {/* <Button hanldeClick={toggleSidebar}>Add to cart</Button> */}
               </div>
             </div>
           </div>
         </form>
+        {sidebarOpen && <Sidebar isOpen={sidebarOpen} />}
       </Wrapper>
     </section>
   )
