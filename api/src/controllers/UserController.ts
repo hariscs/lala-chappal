@@ -2,6 +2,7 @@ import { Request, Response } from 'express'
 import bcrypt from 'bcrypt'
 import jwt from 'jsonwebtoken'
 import User, { IUser } from '../models/User'
+import { jwtSecret } from '../../config'
 
 export const signup = async (req: Request, res: Response) => {
   try {
@@ -27,11 +28,9 @@ export const signup = async (req: Request, res: Response) => {
     const savedUser: IUser = await user.save()
 
     // Generate JWT token
-    const token: string = jwt.sign(
-      { userId: savedUser._id },
-      process.env.jwtSecret,
-      { expiresIn: '30d' }
-    )
+    const token: string = jwt.sign({ userId: savedUser._id }, jwtSecret, {
+      expiresIn: '30d',
+    })
 
     res.status(201).json({ token })
   } catch (error) {
@@ -60,11 +59,9 @@ export const loginUser = async (req: Request, res: Response) => {
 
     // Successful login
     // Generate JWT token
-    const token: string = jwt.sign(
-      { userId: user._id },
-      process.env.jwtSecret,
-      { expiresIn: '30d' }
-    )
+    const token: string = jwt.sign({ userId: user._id }, jwtSecret, {
+      expiresIn: '30d',
+    })
 
     return res.status(200).json({ message: 'Login successful', token })
   } catch (error) {
