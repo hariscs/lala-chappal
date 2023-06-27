@@ -49,6 +49,11 @@ export const imagesData = [
     src: "/yellowchappal.png",
     name: "yellow-chappal",
   },
+  {
+    id: "3",
+    src: "/blackchappal.png",
+    name: "black-chappal",
+  },
 ];
 
 export const shoeSizes = ["39", "41", "42", "43", "44"];

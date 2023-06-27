@@ -43,7 +43,15 @@ export const Custom = ({
     }
     setSidebarOpen(!sidebarOpen);
   };
-  console.log(sidebarOpen);
+
+  const selectedImageUrl =
+    selectedDesign && selectedDesign.trim().length !== 0
+      ? imagesData.find(
+          (v) =>
+            v.name.trim().toLowerCase() === selectedDesign.trim().toLowerCase()
+        )?.src
+      : "/blackchappal.png";
+
   return (
     <section className="py-8 lg:py-16" ref={targetRef}>
       <Wrapper>
@@ -83,7 +91,7 @@ export const Custom = ({
               <div className="border flex flex-col justify-between p-2 items-center bg-[#f9f9f9] max-w-[668px] max-h-[548px] rounded-2xl">
                 <div>
                   <Image
-                    src="/blackchappal.png"
+                    src={selectedImageUrl as string}
                     alt="chappal"
                     width={537}
                     height={309}
