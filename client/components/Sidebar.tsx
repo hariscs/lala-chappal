@@ -34,7 +34,7 @@ export const Sidebar = ({
 
   return (
     <motion.div
-      className={`fixed bg-white top-0 right-0 h-screen w-[60%] lg:w-[30%] shadow-xl rounded-md z-50`}
+      className={`fixed bg-white top-0 right-0 h-full lg:h-screen w-[60%] lg:w-[30%] shadow-xl rounded-md z-50`}
       initial={{ translateX: "100%" }}
       animate={{ translateX: isOpen ? "0%" : "100%" }}
       exit={{ translateX: "100%" }}
