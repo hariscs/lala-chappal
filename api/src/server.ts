@@ -11,8 +11,8 @@ const app: Application = express();
 
 // Allow requests from specific origins
 const allowedOrigins = [
-  "https://lala-api-dc4f.onrender.com",
-  "http://localhost:8080",
+  "https://lala-chappal.vercel.app",
+  "http://localhost:3000",
 ];
 
 app.use(
