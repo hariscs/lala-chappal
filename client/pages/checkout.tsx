@@ -49,7 +49,7 @@ export default function Checkout() {
   const handleCheckout = (formData: any) => {
     setLoading(true);
     // Send form data to the API using fetch or any other HTTP client library
-    fetch(`${baseUrl}product`, {
+    fetch(`${baseUrl}/product`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

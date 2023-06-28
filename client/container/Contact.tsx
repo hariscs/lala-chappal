@@ -17,7 +17,7 @@ export const Contact = () => {
     console.log("sending feedback...");
     console.log("form data", formData);
     try {
-      const response = await fetch(`${baseUrl}contact`, {
+      const response = await fetch(`${baseUrl}/contact`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         // mode: "no-cors",
