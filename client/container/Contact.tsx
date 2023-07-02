@@ -7,17 +7,18 @@ export const Contact = () => {
   const [dataSubmitted, setDataSubmitted] = useState(false)
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
-  const postFormData = async (formData: {
+  interface IFormData {
     name: string
     contact: string
     email: string
     message: string
-  }) => {
+  }
+
+  const postFormData = async (formData: IFormData) => {
     try {
       const response = await fetch(`${baseUrl}/contact`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        mode: 'no-cors',
         body: JSON.stringify(formData),
       })
       if (!response.ok) {

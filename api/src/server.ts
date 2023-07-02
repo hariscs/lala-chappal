@@ -5,7 +5,7 @@ import { loginUser, signup } from './controllers/UserController'
 import mongoose from 'mongoose'
 import { createProduct } from './controllers/ProductController'
 import { contact } from './controllers/MailController'
-import { dbURI } from '../config'
+import { dbLocal, dbURI } from '../config'
 dotenv.config()
 const app: Application = express()
 
@@ -23,12 +23,12 @@ app.get('/', (req, res) => {
   res.json({ message: 'REST API for lala Chappal' })
 })
 
-
 const PORT = 8080
 // db connection
 mongoose.set('strictQuery', false)
 mongoose
-  .connect(dbURI)
+  .connect(dbLocal)
+  // .connect(dbURI)
   .then(() =>
     app.listen(PORT, () => {
       console.log('db connected & app running on port', PORT)
