@@ -18,7 +18,10 @@ export const Contact = () => {
     try {
       const response = await fetch(`${baseUrl}/contact`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: {
+          'Content-Type': 'application/json',
+          'Access-Control-Allow-Origin': '*',
+        },
         body: JSON.stringify(formData),
       })
       if (response.ok) {

@@ -16,16 +16,10 @@ const allowedOrigins = [
 ]
 app.use(
   cors({
-    origin: ['http://localhost:3000', 'https://lala-chappal.vercel.app/'],
-    credentials: true,
+    origin: '*',
   })
 )
-// app.use(
-//   cors({
-//     origin: '*',
-//   })
-// )
-// app.options('*', cors())
+app.options('*', cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
