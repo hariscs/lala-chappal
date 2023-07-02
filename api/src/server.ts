@@ -20,12 +20,12 @@ app.use(
     credentials: true,
   })
 )
-app.use(
-  cors({
-    origin: '*',
-  })
-)
-app.options('*', cors())
+// app.use(
+//   cors({
+//     origin: '*',
+//   })
+// )
+// app.options('*', cors())
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
