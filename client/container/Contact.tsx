@@ -4,7 +4,7 @@ import Link from 'next/link'
 import React, { useState } from 'react'
 
 export const Contact = () => {
-  const [dataSubmitted, setDataSubmitted] = useState(false)
+  const [loading, setLoading] = useState(false)
   const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
   interface IFormData {
@@ -21,15 +21,26 @@ export const Contact = () => {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       })
-      if (!response.ok) {
-        console.log(formData)
+      if (response.ok) {
+        const data = await response.json()
+        console.log('response data', data)
+
+        setLoading(false)
+        window.alert(
+          'Thanks! We have received your feedback you will hear from us shortly'
+        )
       }
     } catch (err) {
       console.log(formData)
+      setLoading(false)
+      window.alert(
+        'Sorry, your feedback could not be sent at this time. Try again later.'
+      )
     }
   }
 
   const handleSubmit = (e: React.SyntheticEvent) => {
+    console.log('send request here')
     e.preventDefault()
     // Type Assertion: Sometimes we will have information about the type of a value that TypeScript can’t know about. it's a way to let the TypeScript compiler know the type of a variable.
     const target = e.target as typeof e.target & {
@@ -48,7 +59,17 @@ export const Contact = () => {
       email,
       message,
     }
-    postFormData(formData)
+
+    if (
+      contact.trim().length !== 0 &&
+      email.trim().length !== 0 &&
+      name.trim().length !== 0 &&
+      message.trim().length !== 0
+    ) {
+      return postFormData(formData)
+    } else {
+      window.alert('You cannot send empty feedback')
+    }
   }
   return (
     <section>
@@ -160,7 +181,9 @@ export const Contact = () => {
                   className='border border-[#94a3b8] p-3 rounded'
                 ></textarea>
               </div>
-              <Button type='submit'>Send</Button>
+              <Button type='submit' disabled={loading}>
+                Send
+              </Button>
             </form>
           </div>
         </div>

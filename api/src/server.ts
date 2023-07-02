@@ -9,7 +9,17 @@ import { dbLocal, dbURI } from '../config'
 dotenv.config()
 const app: Application = express()
 
-app.use(cors())
+// Allow requests from specific origins
+const allowedOrigins = [
+  'https://lala-chappal.vercel.app',
+  'http://localhost:3000',
+]
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+  })
+)
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
@@ -27,8 +37,8 @@ const PORT = 8080
 // db connection
 mongoose.set('strictQuery', false)
 mongoose
-  .connect(dbLocal)
-  // .connect(dbURI)
+  // .connect(dbLocal)
+  .connect(dbURI)
   .then(() =>
     app.listen(PORT, () => {
       console.log('db connected & app running on port', PORT)
