@@ -14,12 +14,16 @@ const allowedOrigins = [
   'https://lala-chappal.vercel.app',
   'http://localhost:3000',
 ]
+
 app.use(
   cors({
     origin: allowedOrigins,
+    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+    preflightContinue: true,
+    optionsSuccessStatus: 204,
   })
 )
-app.options('*', cors())
+
 app.use(express.json())
 app.use(express.urlencoded({ extended: true }))
 
@@ -29,7 +33,6 @@ app.post('/login', loginUser)
 app.post('/product', createProduct)
 app.post('/contact', contact)
 app.get('/', (req, res) => {
-  res.status(200)
   res.json({ message: 'REST API for lala Chappal' })
 })
 
@@ -45,6 +48,3 @@ mongoose
     })
   )
   .catch((err) => console.log(err))
-// app.listen(PORT, () => {
-//   console.log('app running on port', PORT)
-// })
