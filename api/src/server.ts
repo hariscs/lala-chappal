@@ -16,7 +16,7 @@ const allowedOrigins = [
 ]
 app.use(
   cors({
-    origin: '*',
+    origin: allowedOrigins,
   })
 )
 app.options('*', cors())
