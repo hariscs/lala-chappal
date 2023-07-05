@@ -2,6 +2,7 @@ import { Button } from '@components/Button'
 import { Wrapper } from '@components/Wrapper'
 import Link from 'next/link'
 import React, { useState } from 'react'
+import axios from 'axios'
 
 export const Contact = () => {
   const [loading, setLoading] = useState(false)
@@ -16,28 +17,26 @@ export const Contact = () => {
 
   const postFormData = async (formData: IFormData) => {
     try {
-      const response = await fetch(`${baseUrl}/contact`, {
-        method: 'POST',
+      const response = await axios.post(`${baseUrl}/contact`, formData, {
         headers: {
           'Content-Type': 'application/json',
         },
-
-        body: JSON.stringify(formData),
       })
-      if (response.ok) {
-        const data = await response.json()
+
+      if (response.status === 200) {
+        const data = response.data
         console.log('response data', data)
 
         setLoading(false)
         window.alert(
-          'Thanks! We have received your feedback you will hear from us shortly'
+          'Thanks! We have received your feedback. You will hear from us shortly.'
         )
       }
     } catch (err) {
       console.log(formData)
       setLoading(false)
       window.alert(
-        'Sorry, your feedback could not be sent at this time. Try again later.'
+        'Sorry, your feedback could not be sent at this time. Please try again later.'
       )
     }
   }

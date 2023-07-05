@@ -18,18 +18,18 @@ const allowedOrigins = [
 app.use(
   cors({
     origin: '*',
-    methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
-    preflightContinue: true,
-    optionsSuccessStatus: 204,
-    allowedHeaders: [
-      'Accept',
-      'Authorization',
-      'Content-Type',
-      'X-CSRF-Token',
-      'Access-Control-Allow-Origin',
-      'Cache-Control',
-    ],
-    exposedHeaders: ['Content-Type', 'JWT-Token', 'Content-Disposition'],
+    // methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
+    // preflightContinue: true,
+    // optionsSuccessStatus: 204,
+    // allowedHeaders: [
+    //   'Accept',
+    //   'Authorization',
+    //   'Content-Type',
+    //   'X-CSRF-Token',
+    //   'Access-Control-Allow-Origin',
+    //   'Cache-Control',
+    // ],
+    // exposedHeaders: ['Content-Type', 'JWT-Token', 'Content-Disposition'],
   })
 )
 
