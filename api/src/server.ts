@@ -5,7 +5,7 @@ import { loginUser, signup } from './controllers/UserController'
 import mongoose from 'mongoose'
 import { createProduct } from './controllers/ProductController'
 import { contact } from './controllers/MailController'
-import { dbLocal, dbURI } from '../config'
+import { dbLocal, dbRailway, dbURI } from '../config'
 dotenv.config()
 const app: Application = express()
 
@@ -50,7 +50,8 @@ const PORT = 8080
 mongoose.set('strictQuery', false)
 mongoose
   // .connect(dbLocal)
-  .connect(dbURI)
+  // .connect(dbURI)
+  .connect(dbRailway)
   .then(() =>
     app.listen(PORT, () => {
       console.log('db connected & app running on port', PORT)
