@@ -22,38 +22,32 @@ export const contact = async (req: Request, res: Response) => {
     res.status(400).json({ error: err })
     return
   }
-  res.status(200).json({ message: 'contact saved' })
 
   // read html template and update with dynamic content
-  // const adminTemplate = path.join(
-  //   __dirname,
-  //   "..",
-  //   "html",
-  //   "contact-admin.html"
-  // );
-  // const userTemplate = path.join(__dirname, "..", "html", "contact-user.html");
-  // const template = fs.readFileSync(adminTemplate, "utf8");
+  const adminTemplate = path.join(__dirname, '..', 'html', 'contact-admin.html')
+  const userTemplate = path.join(__dirname, '..', 'html', 'contact-user.html')
+  const template = fs.readFileSync(adminTemplate, 'utf8')
 
-  // const userHtml = fs.readFileSync(userTemplate, "utf8");
+  const userHtml = fs.readFileSync(userTemplate, 'utf8')
 
-  // const html = template
-  //   .replace("{{name}}", name)
-  //   .replace("{{contact}}", contact)
-  //   .replace("{{email}}", email)
-  //   .replace("{{message}}", message);
+  const html = template
+    .replace('{{name}}', name)
+    .replace('{{contact}}', contact)
+    .replace('{{email}}', email)
+    .replace('{{message}}', message)
 
-  // const adminEmailPromise = mailer(ADMIN_EMAIL, ADMIN_SUBJECT, html);
-  // const userEmailPromise = mailer(email, SUBJECT, userHtml);
+  const adminEmailPromise = mailer(ADMIN_EMAIL, ADMIN_SUBJECT, html)
+  const userEmailPromise = mailer(email, SUBJECT, userHtml)
 
-  // Promise.all([adminEmailPromise, userEmailPromise])
-  //   .then(() => {
-  //     console.log("Emails sent successfully");
-  //     res.status(200).json({
-  //       success: "Thanks for reaching out to us. You will hear from us shortly",
-  //     });
-  //   })
-  //   .catch((error) => {
-  //     res.status(500).json({ error: "Internal server error" });
-  //     console.log("Email sending failed", error);
-  //   });
+  Promise.all([adminEmailPromise, userEmailPromise])
+    .then(() => {
+      console.log('Emails sent successfully')
+      res.status(200).json({
+        success: 'Thanks for reaching out to us. You will hear from us shortly',
+      })
+    })
+    .catch((error) => {
+      res.status(500).json({ error: 'Internal server error' })
+      console.log('Email sending failed', error)
+    })
 }
