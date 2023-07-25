@@ -10,7 +10,7 @@ export const TestimonialCard = ({ data }: { data: ITestimonialCard }) => {
   const { name, review } = data
 
   return (
-    <div className='border p-8 max-w-sm rounded-[2rem] flex flex-col border-b-4 border-r-4 border-primary'>
+    <div className='border min-h-[320px] p-8 max-w-sm rounded-[2rem] flex flex-col border-b-4 border-r-4 border-primary'>
       <div className='flex justify-betweem items-center gap-4'>
         <Image
           className='rounded-full border-4 border-primary max-w-[110px] max-h-[110px]'

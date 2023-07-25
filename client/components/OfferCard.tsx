@@ -11,7 +11,7 @@ export const OfferCard = ({ data }: { data: IOfferCard }) => {
   const { icon, heading, text } = data
 
   return (
-    <div className='border max-w-sm px-7 py-12 lg:px-12 lg:py-16 rounded-[2rem] flex flex-col items-center shadow-cards border-b-4 border-r-4 border-primary'>
+    <div className='border max-w-sm px-6 py-10 lg:px-10 lg:py-12 text-center rounded-[2rem] flex flex-col items-center shadow-cards border-b-4 border-r-4 border-primary'>
       <Image
         src={icon}
         alt={heading}

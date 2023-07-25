@@ -133,7 +133,7 @@ export default function Checkout() {
                 required
                 aria-required
                 id="email"
-                type="text"
+                type="email"
                 placeholder="johndoe@mailinator.com"
                 value={userForm.email}
                 onChange={(e) =>
@@ -153,7 +153,7 @@ export default function Checkout() {
                 aria-required
                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
                 id="address"
-                placeholder="johndoe@mailinator.com"
+                placeholder="ABC street"
                 value={userForm.address}
                 onChange={(e) =>
                   setUserForm((prev) => ({ ...prev, address: e.target.value }))

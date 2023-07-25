@@ -136,7 +136,6 @@ export const Custom = ({
                 <Button type="button" hanldeClick={toggleSidebar}>
                   Add to cart
                 </Button>
-                {/* <Button hanldeClick={toggleSidebar}>Add to cart</Button> */}
               </div>
             </div>
           </div>
