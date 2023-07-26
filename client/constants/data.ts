@@ -43,18 +43,18 @@ export const offers = [
 export const imagesData = [
   {
     id: '1',
-    src: '/bluechappal.png',
-    name: 'blue-chappal',
+    src: '/chappals/1black.png',
+    name: 'signature',
   },
   {
     id: '2',
-    src: '/yellowchappal.png',
-    name: 'yellow-chappal',
+    src: '/chappals/2brown.png',
+    name: 'lala',
   },
   {
     id: '3',
-    src: '/blackchappal.png',
-    name: 'black-chappal',
+    src: '/chappals/3white.png',
+    name: 'norozi',
   },
 ]
 
