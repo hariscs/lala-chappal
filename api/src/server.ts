@@ -5,7 +5,8 @@ import { loginUser, signup } from './controllers/UserController'
 import mongoose from 'mongoose'
 import { createProduct } from './controllers/ProductController'
 import { contact } from './controllers/MailController'
-import { dbRailway } from '../config'
+import { dbRailway, dbURI } from '../config'
+import { createChappal } from './controllers/ChappalController'
 dotenv.config()
 const app: Application = express()
 
@@ -18,6 +19,7 @@ app.use(express.urlencoded({ extended: true }))
 app.post('/signup', signup)
 app.post('/login', loginUser)
 app.post('/product', createProduct)
+app.post('/chappal', createChappal)
 app.post('/contact', contact)
 app.get('/', (req, res) => {
   res.json({ message: 'REST API for lala Chappal' })
@@ -28,8 +30,8 @@ const PORT = 8080
 mongoose.set('strictQuery', false)
 mongoose
   // .connect(dbLocal)
-  // .connect(dbURI)
-  .connect(dbRailway)
+  .connect(dbURI)
+  // .connect(dbRailway)
   .then(() =>
     app.listen(PORT, () => {
       console.log('db connected & app running on port', PORT)

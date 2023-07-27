@@ -12,10 +12,11 @@ export const Custom = ({
 }: {
   targetRef: RefObject<HTMLElement>
 }) => {
-  const [selectedDesign, setSelectedDesign] = useState('')
-  const [selectedColor, setSelectedColor] = useState('')
+  const [selectedDesign, setSelectedDesign] = useState('signature')
+  const [selectedColor, setSelectedColor] = useState('black')
   const [selectedNumber, setSelectedNumber] = useState('')
   const [imgURL, setImgURL] = useState('/chappals/1black.png')
+
   const handleDesignSelect = (src: string) => {
     setSelectedDesign(src)
     if (src === 'signature') {
@@ -30,25 +31,24 @@ export const Custom = ({
   const handleColorSelect = (color: string) => {
     if (selectedDesign === 'signature' && color === 'black') {
       setImgURL('/chappals/1black.png')
-      // setSelectedColor('black')
+      setSelectedColor(color)
     } else if (selectedDesign === 'signature' && color === 'brown') {
       setImgURL('/chappals/1brown.png')
-      // setSelectedColor('brown')
+      setSelectedColor(color)
     } else if (selectedDesign === 'lala' && color === 'brown') {
       setImgURL('/chappals/2brown.png')
-      // setSelectedColor('brown')
+      setSelectedColor(color)
     } else if (selectedDesign === 'lala' && color === 'black') {
-      // setSelectedColor('black')
+      setSelectedColor(color)
       setImgURL('/chappals/2black.png')
     } else if (selectedDesign === 'norozi' && color === 'brown') {
+      setSelectedColor(color)
       setImgURL('/chappals/3brown.png')
-    } else if (selectedDesign === 'norozi' && color === 'black') {
-      // setSelectedColor('black')
+    } else if (selectedDesign === 'norozi' && color === 'white') {
+      setSelectedColor(color)
       setImgURL('/chappals/3white.png')
     }
   }
-
-  console.log({ imgURL })
 
   const handleNumberSelect = (number: string) => {
     setSelectedNumber(number)
@@ -125,22 +125,45 @@ export const Custom = ({
                 />
 
                 <div className='flex gap-4'>
-                  <div
-                    className={`rounded-full cursor-pointer border-4 w-14 h-14 bg-[#652a02] ${
-                      selectedColor === 'brown'
-                        ? 'border-primary'
-                        : 'border-white'
-                    }`}
-                    onClick={() => handleColorSelect('brown')}
-                  ></div>
-                  <div
-                    className={`rounded-full cursor-pointer border-4 w-14 h-14 bg-[#000] ${
-                      selectedColor === 'black'
-                        ? 'border-primary'
-                        : 'border-white'
-                    }`}
-                    onClick={() => handleColorSelect('black')}
-                  ></div>
+                  {selectedDesign === 'norozi' ? (
+                    <>
+                      <div
+                        className={`rounded-full cursor-pointer border-4 w-14 h-14 bg-[#652a02] ${
+                          selectedColor === 'brown'
+                            ? 'border-primary'
+                            : 'border-white'
+                        }`}
+                        onClick={() => handleColorSelect('brown')}
+                      ></div>
+                      <div
+                        className={`rounded-full cursor-pointer border-4 w-14 h-14 bg-[#fff] ${
+                          selectedColor === 'white'
+                            ? 'border-primary'
+                            : 'border-black'
+                        }`}
+                        onClick={() => handleColorSelect('white')}
+                      ></div>
+                    </>
+                  ) : (
+                    <>
+                      <div
+                        className={`rounded-full cursor-pointer border-4 w-14 h-14 bg-[#652a02] ${
+                          selectedColor === 'brown'
+                            ? 'border-primary'
+                            : 'border-white'
+                        }`}
+                        onClick={() => handleColorSelect('brown')}
+                      ></div>
+                      <div
+                        className={`rounded-full cursor-pointer border-4 w-14 h-14 bg-[#000] ${
+                          selectedColor === 'black'
+                            ? 'border-primary'
+                            : 'border-white'
+                        }`}
+                        onClick={() => handleColorSelect('black')}
+                      ></div>
+                    </>
+                  )}
                 </div>
               </div>
               <div className='flex text-3xl my-3 font-bold items-center justify-center gap-8'>
