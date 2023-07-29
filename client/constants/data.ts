@@ -3,19 +3,22 @@ export const testimonials = [
     id: '1',
     name: 'Hamza Iqbal',
     review:
-      'Absolutely thrilled with my custom shoes! The design process was so much fun, and the final product fits like a dream. Thank you for crafting a pair that reflects my style perfectly!',
+      'The design process was so much fun, and the final product fits like a dream. Thank you for crafting a pair that reflects my style perfectly!',
+    img: '/profile/hamza.jpeg',
   },
   {
     id: '2',
     name: 'Muneeb Ahmed',
     review:
       "I'm in love with my bespoke shoes! The attention to detail is impeccable, and the comfort is unmatched. Can't wait to order my next pair!",
+    img: '/profile/muneeb.jpeg',
   },
   {
     id: '3',
-    name: 'Abbas Khan',
+    name: 'Uzair Ali',
     review:
       'These custom shoes are a game-changer. The quality is top-notch, and I received them earlier than expected. Highly recommend for anyone looking for personalized footwear',
+    img: '/profile/uzair.jpeg',
   },
 ]
 

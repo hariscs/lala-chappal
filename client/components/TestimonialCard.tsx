@@ -1,21 +1,22 @@
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import React from 'react'
 
 export interface ITestimonialCard {
   name: string
   review: string
+  img: string
 }
 
 export const TestimonialCard = ({ data }: { data: ITestimonialCard }) => {
-  const { name, review } = data
-
+  const { name, review, img } = data
+  console.log(img)
   return (
-    <div className='border min-h-[320px] p-8 max-w-sm rounded-[2rem] flex flex-col border-b-4 border-r-4 border-primary'>
+    <div className='border h-[320px] p-8 max-w-sm rounded-[2rem] flex flex-col border-b-4 border-r-4 border-primary'>
       <div className='flex justify-betweem items-center gap-4'>
         <Image
-          className='rounded-full border-4 border-primary max-w-[110px] max-h-[110px]'
-          src='https://i.pravatar.cc/300'
-          alt='Client Image'
+          className='rounded-full border-4 border-primary w-auto h-auto'
+          src={img}
+          alt={name}
           width={110}
           height={110}
         />
