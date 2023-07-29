@@ -21,10 +21,13 @@ export const Custom = ({
     setSelectedDesign(src)
     if (src === 'signature') {
       setImgURL('/chappals/1black.png')
+      setSelectedColor('black')
     } else if (src === 'lala') {
       setImgURL('/chappals/2brown.png')
+      setSelectedColor('brown')
     } else {
       setImgURL('/chappals/3white.png')
+      setSelectedColor('white')
     }
   }
 

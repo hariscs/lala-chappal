@@ -1,4 +1,5 @@
 import { Wrapper } from '@components/Wrapper'
+import { Contact } from '@container/Contact'
 import { Footer } from '@container/Footer'
 import { Header } from '@container/Header'
 import Head from 'next/head'
@@ -16,9 +17,10 @@ export default function Premade() {
 
       <section className='pt-[96px] pb-[171px]'>
         <Wrapper>
-          <h2 className='flex items-center justify-center text-6xl text-primary font-semibold'>
-            Premade Chappals Are Coming Soon
-          </h2>
+          <h1 className='text-center mb-10 text-6xl text-primary font-semibold'>
+            Get In Touch
+          </h1>
+          <Contact />
         </Wrapper>
       </section>
       <Footer />
