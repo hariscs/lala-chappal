@@ -57,13 +57,13 @@ export const Footer = () => {
               <Link href='/' className='text-gray text-xl'>
                 Home
               </Link>
-              <Link href='/' className='text-gray text-xl'>
+              <Link href='/about' className='text-gray text-xl'>
                 About
               </Link>
-              <Link href='/' className='text-gray text-xl'>
+              <Link href='/gallery' className='text-gray text-xl'>
                 Gallery
               </Link>
-              <Link href='/' className='text-gray text-xl'>
+              <Link href='/contact' className='text-gray text-xl'>
                 Contact
               </Link>
             </div>
