@@ -95,7 +95,7 @@ export const Custom = ({
               Make your own or choose from our gallery of popular designs
             </p>
           </div>
-          <div className='flex gap-4 items-center'>
+          <div className='flex gap-4 items-center flex-col md:flex-row'>
             <div className='flex flex-col gap-4'>
               {imagesData.map((img, i) => (
                 <div
