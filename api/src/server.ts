@@ -34,8 +34,8 @@ const PORT = 8080
 // db connection
 mongoose.set('strictQuery', false)
 mongoose
-  .connect(dbLocal)
-  // .connect(dbURI)
+  // .connect(dbLocal)
+  .connect(dbURI)
   .then(() =>
     app.listen(PORT, () => {
       console.log('db connected & app running on port', PORT)
