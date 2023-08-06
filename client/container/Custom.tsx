@@ -80,7 +80,6 @@ export const Custom = ({
             v.name.trim().toLowerCase() === selectedDesign.trim().toLowerCase()
         )?.src
       : '/chappals/1black.png'
-  console.log(selectedColor, selectedImageUrl)
 
   return (
     <section className='py-8 lg:py-16' ref={targetRef}>

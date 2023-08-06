@@ -9,7 +9,6 @@ export interface ITestimonialCard {
 
 export const TestimonialCard = ({ data }: { data: ITestimonialCard }) => {
   const { name, review, img } = data
-  console.log(img)
   return (
     <div className='border h-[320px] p-8 max-w-sm rounded-[2rem] flex flex-col border-b-4 border-r-4 border-primary'>
       <div className='flex justify-betweem items-center gap-4'>

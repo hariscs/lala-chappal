@@ -25,7 +25,6 @@ export const Contact = () => {
 
       if (response.status === 200) {
         const data = response.data
-        console.log('response data', data)
 
         setLoading(false)
         window.alert(
@@ -33,7 +32,6 @@ export const Contact = () => {
         )
       }
     } catch (err) {
-      console.log(formData)
       setLoading(false)
       window.alert(
         'Sorry, your feedback could not be sent at this time. Please try again later.'
@@ -42,7 +40,6 @@ export const Contact = () => {
   }
 
   const handleSubmit = (e: React.SyntheticEvent) => {
-    console.log('send request here')
     e.preventDefault()
     // Type Assertion: Sometimes we will have information about the type of a value that TypeScript can’t know about. it's a way to let the TypeScript compiler know the type of a variable.
     const target = e.target as typeof e.target & {

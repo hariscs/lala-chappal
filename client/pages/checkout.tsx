@@ -59,8 +59,6 @@ export default function Checkout() {
     })
       .then((response) => response.json())
       .then((data) => {
-        // Handle the API response if needed
-        console.log('api responsse data', data)
         setLoading(false)
         router.push('/success')
       })
