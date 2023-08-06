@@ -22,13 +22,14 @@ interface Order {
 function OrdersList() {
   const [orders, setOrders] = useState<Order[]>([])
   const [selectedStatuses, setSelectedStatuses] = useState<SelectedStatuses>({})
+  const baseUrl = process.env.NEXT_PUBLIC_BASE_URL
 
   useEffect(() => {
     // Fetch orders from the backend
-    fetch('http://localhost:8080/orders')
+    fetch(`${baseUrl}/orders`)
       .then((response) => response.json())
       .then((data) => {
-        setOrders(data)
+        setOrders(data.reverse())
       })
       .catch((error) => {
         console.error('Error fetching orders:', error)
@@ -39,7 +40,7 @@ function OrdersList() {
     try {
       // Send PUT request to update order status
       const selectedStatus = selectedStatuses[orderId]
-      const response = await fetch(`http://localhost:8080/orders/update`, {
+      const response = await fetch(`${baseUrl}/orders/update`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -54,7 +55,7 @@ function OrdersList() {
         const updatedOrder = orders.find((order) => order._id === orderId)
 
         // Send email to customer
-        await fetch('http://localhost:8080/send-email', {
+        await fetch(`${baseUrl}/send-email`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -71,7 +72,6 @@ function OrdersList() {
       console.error('Error updating order status:', error)
     }
   }
-
   const handleStatusChange = (orderId: string, status: string) => {
     setSelectedStatuses((prevStatuses) => ({
       ...prevStatuses,
@@ -132,7 +132,7 @@ function OrdersList() {
           </form>
         </div>
       ) : (
-        <div className='mx-auto mt-8 px-4 mb-20'>
+        <div className='mx-auto mt-8 px-4 mb-20 max-w-7xl'>
           <h2 className='text-4xl font-semibold mb-4 text-primary text-center'>
             Orders Summery
           </h2>
