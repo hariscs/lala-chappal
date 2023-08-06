@@ -53,8 +53,11 @@ export const Header = () => {
         </ul>
       </nav>
       {/* cart only visible on larger screens*/}
-      <Link href='/cart' className='hidden md:block py-3.5'>
-        <Image src='/cart.svg' priority alt='cart' width={27} height={27} />
+      <Link
+        href='/admin'
+        className='py-3.5 hover:text-primary text-[#333] capitalize inline-block text-xl'
+      >
+        Login
       </Link>
       {/* mobile menu */}
       <div

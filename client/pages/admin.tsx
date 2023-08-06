@@ -132,7 +132,7 @@ function OrdersList() {
           </form>
         </div>
       ) : (
-        <div className='mx-auto mt-8 px-4 mb-20 max-w-7xl'>
+        <div className='mx-auto mt-8 min-h-screen px-4 mb-20 max-w-7xl'>
           <h2 className='text-4xl font-semibold mb-4 text-primary text-center'>
             Orders Summery
           </h2>
