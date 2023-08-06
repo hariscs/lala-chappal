@@ -85,7 +85,7 @@ function OrdersList() {
   const adminEmail = 'admin@lalachappal.com'
   const adminPassword = 'lala99'
 
-  const handleLogin = (e) => {
+  const handleLogin = (e: { preventDefault: () => void }) => {
     e.preventDefault()
     if (email === adminEmail && password === adminPassword) {
       setShowDashboard(true)
